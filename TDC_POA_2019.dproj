@@ -7,7 +7,7 @@
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Android</Platform>
-        <TargetedPlatforms>19</TargetedPlatforms>
+        <TargetedPlatforms>16</TargetedPlatforms>
         <AppType>Application</AppType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
@@ -151,8 +151,8 @@
             </Delphi.Personality>
             <Platforms>
                 <Platform value="Android">True</Platform>
-                <Platform value="Win32">True</Platform>
-                <Platform value="Win64">True</Platform>
+                <Platform value="Win32">False</Platform>
+                <Platform value="Win64">False</Platform>
             </Platforms>
             <Deployment Version="3">
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_NotificationIcon_72x72.png" Configuration="Debug" Class="Android_NotificationIcon72">

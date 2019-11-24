@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Graphics, FMX.Controls, FMX.Forms, FMX.Dialogs, FMX.TabControl,
-  FMX.StdCtrls, FMX.Gestures, FMX.Controls.Presentation;
+  FMX.StdCtrls, FMX.Gestures, FMX.Controls.Presentation, FMX.Objects,
+  FMX.Layouts, FMX.Edit;
 
 type
   TTabbedForm = class(TForm)
@@ -14,9 +15,18 @@ type
     TabControl1: TTabControl;
     TabItem1: TTabItem;
     TabItem2: TTabItem;
-    TabItem3: TTabItem;
-    TabItem4: TTabItem;
     GestureManager1: TGestureManager;
+    Layout1: TLayout;
+    Rectangle1: TRectangle;
+    GridPanelLayout1: TGridPanelLayout;
+    Label1: TLabel;
+    Edit1: TEdit;
+    FlowLayout1: TFlowLayout;
+    Label2: TLabel;
+    Edit2: TEdit;
+    Layout2: TLayout;
+    Label3: TLabel;
+    Edit3: TEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
       var Handled: Boolean);

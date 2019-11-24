@@ -22,7 +22,7 @@ object TabbedForm: TTabbedForm
       Size.PlatformDefault = False
       StyleLookup = 'toollabel'
       TextSettings.HorzAlign = Center
-      Text = 'Title'
+      Text = 'TDC POA 2019'
     end
   end
   object TabControl1: TTabControl
@@ -32,14 +32,10 @@ object TabbedForm: TTabbedForm
     Size.Height = 519.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
-      384s
-      470s
-      384s
-      470s
       384s
       470s
       384s
@@ -48,13 +44,13 @@ object TabbedForm: TTabbedForm
       CustomIcon = <
         item
         end>
-      IsSelected = True
-      Size.Width = 95.000000000000000000
+      IsSelected = False
+      Size.Width = 191.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'tabitemtoprated'
       TabOrder = 0
-      Text = 'TabItem1'
+      Text = 'Pascal'
       ExplicitSize.cx = 50.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
     end
@@ -62,49 +58,207 @@ object TabbedForm: TTabbedForm
       CustomIcon = <
         item
         end>
-      IsSelected = False
-      Size.Width = 95.000000000000000000
+      IsSelected = True
+      Size.Width = 191.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'tabitemcontacts'
       TabOrder = 0
-      Text = 'TabItem2'
+      Text = 'Configura'#231#227'o'
       ExplicitSize.cx = 50.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
-    end
-    object TabItem3: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 95.000000000000000000
-      Size.Height = 49.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = 'tabitemrecent'
-      TabOrder = 0
-      Text = 'TabItem3'
-      ExplicitSize.cx = 50.000000000000000000
-      ExplicitSize.cy = 49.000000000000000000
-    end
-    object TabItem4: TTabItem
-      CustomIcon = <
-        item
-        end>
-      IsSelected = False
-      Size.Width = 97.000000000000000000
-      Size.Height = 49.000000000000000000
-      Size.PlatformDefault = False
-      StyleLookup = 'tabitemmostrecent'
-      TabOrder = 0
-      Text = 'TabItem4'
-      ExplicitSize.cx = 50.000000000000000000
-      ExplicitSize.cy = 49.000000000000000000
+      object Layout1: TLayout
+        Align = Client
+        Size.Width = 384.000000000000000000
+        Size.Height = 470.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object Rectangle1: TRectangle
+          Align = Client
+          Corners = []
+          Fill.Color = claWhite
+          Size.Width = 384.000000000000000000
+          Size.Height = 470.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claNull
+        end
+        object GridPanelLayout1: TGridPanelLayout
+          Align = Client
+          Padding.Left = 8.000000000000000000
+          Padding.Top = 4.000000000000000000
+          Padding.Right = 8.000000000000000000
+          Padding.Bottom = 4.000000000000000000
+          Size.Width = 384.000000000000000000
+          Size.Height = 470.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          ColumnCollection = <
+            item
+              Value = 100.000000000000000000
+            end>
+          ControlCollection = <
+            item
+              Column = 0
+              Control = Label1
+              Row = 0
+            end
+            item
+              Column = 0
+              Control = Edit1
+              Row = 1
+            end
+            item
+              Column = 0
+              Control = FlowLayout1
+              Row = 2
+            end
+            item
+              Column = 0
+              Control = Label2
+              Row = 3
+            end
+            item
+              Column = 0
+              Control = Edit2
+              Row = 4
+            end
+            item
+              Column = 0
+              Control = Layout2
+              Row = 5
+            end
+            item
+              Column = 0
+              Control = Label3
+              Row = 6
+            end
+            item
+              Column = 0
+              Control = Edit3
+              Row = 7
+            end>
+          RowCollection = <
+            item
+              SizeStyle = Absolute
+              Value = 20.000000000000000000
+            end
+            item
+              SizeStyle = Absolute
+              Value = 52.000000000000000000
+            end
+            item
+              SizeStyle = Absolute
+              Value = 25.000000000000000000
+            end
+            item
+              SizeStyle = Absolute
+              Value = 20.000000000000000000
+            end
+            item
+              SizeStyle = Absolute
+              Value = 52.000000000000000000
+            end
+            item
+              SizeStyle = Absolute
+              Value = 25.000000000000000000
+            end
+            item
+              SizeStyle = Absolute
+              Value = 20.000000000000000000
+            end
+            item
+              SizeStyle = Absolute
+              Value = 52.000000000000000000
+            end
+            item
+              SizeStyle = Auto
+            end>
+          object Label1: TLabel
+            Align = Client
+            StyledSettings = [Family, Size, FontColor]
+            Size.Width = 368.000000000000000000
+            Size.Height = 12.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'OAuth2 ID'
+            TabOrder = 0
+          end
+          object Edit1: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 1
+            Margins.Top = 10.000000000000000000
+            Size.Width = 368.000000000000000000
+            Size.Height = 34.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object FlowLayout1: TFlowLayout
+            Anchors = []
+            Position.X = 167.000000000000000000
+            Position.Y = 76.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 2
+            Justify = Left
+            JustifyLastLine = Left
+            FlowDirection = LeftToRight
+          end
+          object Label2: TLabel
+            Align = Client
+            StyledSettings = [Family, Size, FontColor]
+            Size.Width = 368.000000000000000000
+            Size.Height = 12.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Project ID'
+            TabOrder = 3
+          end
+          object Edit2: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 4
+            Margins.Top = 10.000000000000000000
+            Size.Width = 368.000000000000000000
+            Size.Height = 34.000000000000000000
+            Size.PlatformDefault = False
+          end
+          object Layout2: TLayout
+            Anchors = []
+            Position.X = 167.000000000000000000
+            Position.Y = 173.000000000000000000
+            Size.Width = 50.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 5
+          end
+          object Label3: TLabel
+            Align = Client
+            StyledSettings = [Family, Size, FontColor]
+            Size.Width = 368.000000000000000000
+            Size.Height = 12.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            Text = 'Session ID'
+            TabOrder = 6
+          end
+          object Edit3: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 7
+            Margins.Top = 10.000000000000000000
+            Size.Width = 368.000000000000000000
+            Size.Height = 34.000000000000000000
+            Size.PlatformDefault = False
+          end
+        end
+      end
     end
   end
   object GestureManager1: TGestureManager
     Sensitivity = 80.000000000000000000
-    Left = 352
-    Top = 56
+    Left = 320
+    Top = 8
     GestureData = <
       item
         Control = Owner
