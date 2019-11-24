@@ -1,0 +1,125 @@
+inherited TabbedForm_LgXhdpiPh: TTabbedForm_LgXhdpiPh
+  ClientHeight = 695
+  ClientWidth = 450
+  DesignerMasterStyle = 0
+  inherited HeaderToolBar: TToolBar
+    Size.Width = 450.000000000000000000
+    inherited ToolBarLabel: TLabel
+      Size.Width = 450.000000000000000000
+    end
+  end
+  inherited TabControl1: TTabControl
+    Size.Width = 450.000000000000000000
+    Size.Height = 647.000000000000000000
+    Sizes = (
+      450s
+      598s
+      450s
+      598s)
+    inherited TabItem1: TTabItem
+      Size.Width = 225.000000000000000000
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      inherited Layout3: TLayout
+        Size.Width = 450.000000000000000000
+        Size.Height = 598.000000000000000000
+        inherited Rectangle2: TRectangle
+          Size.Width = 450.000000000000000000
+          Size.Height = 598.000000000000000000
+        end
+        inherited GridPanelLayout2: TGridPanelLayout
+          Size.Width = 450.000000000000000000
+          Size.Height = 598.000000000000000000
+          inherited Edit4: TEdit
+            Align = VertCenter
+            Position.Y = 12.000000000000000000
+            Size.Width = 450.000000000000000000
+            Size.Height = 32.000000000000000000
+            inherited EditButton4: TEditButton
+              Size.Width = 76.000000000000000000
+              Size.Height = 28.000000000000000000
+            end
+          end
+          inherited Memo1: TMemo
+            Size.Width = 450.000000000000000000
+            Size.Height = 540.361450195312500000
+            Viewport.Width = 450.000000000000000000
+            Viewport.Height = 540.400000000000000000
+          end
+        end
+      end
+    end
+    inherited TabItem2: TTabItem
+      Size.Width = 225.000000000000000000
+      ExplicitSize.cx = 50.000000000000000000
+      ExplicitSize.cy = 49.000000000000000000
+      inherited Layout1: TLayout
+        Size.Width = 450.000000000000000000
+        Size.Height = 598.000000000000000000
+        inherited Rectangle1: TRectangle
+          Size.Width = 450.000000000000000000
+          Size.Height = 598.000000000000000000
+        end
+        inherited GridPanelLayout1: TGridPanelLayout
+          Size.Width = 450.000000000000000000
+          Size.Height = 598.000000000000000000
+          inherited Label1: TLabel
+            Size.Width = 434.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          end
+          inherited Edit1: TEdit
+            Size.Width = 434.000000000000000000
+            Size.Height = 32.000000000000000000
+            inherited EditButton2: TEditButton
+              Size.Width = 52.000000000000000000
+              Size.Height = 28.000000000000000000
+            end
+          end
+          inherited FlowLayout1: TFlowLayout
+            Position.X = 200.000000000000000000
+          end
+          inherited Label2: TLabel
+            Size.Width = 434.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          end
+          inherited Edit2: TEdit
+            Size.Width = 434.000000000000000000
+            Size.Height = 32.000000000000000000
+            inherited EditButton1: TEditButton
+              Size.Width = 52.000000000000000000
+              Size.Height = 28.000000000000000000
+            end
+          end
+          inherited Layout2: TLayout
+            Position.X = 200.000000000000000000
+          end
+          inherited Label3: TLabel
+            Size.Width = 434.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+          end
+          inherited Edit3: TEdit
+            Size.Width = 434.000000000000000000
+            Size.Height = 32.000000000000000000
+            inherited EditButton3: TEditButton
+              Size.Width = 52.000000000000000000
+              Size.Height = 28.000000000000000000
+            end
+          end
+        end
+      end
+    end
+  end
+  inherited GestureManager1: TGestureManager
+    GestureData = <
+      item
+        Control = Owner
+        Collection = <
+          item
+            GestureID = sgiLeft
+          end
+          item
+            GestureID = sgiRight
+          end>
+      end>
+  end
+end

@@ -32,7 +32,7 @@ object TabbedForm: TTabbedForm
     Size.Height = 519.000000000000000000
     Size.PlatformDefault = False
     TabHeight = 49.000000000000000000
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 1
     TabPosition = PlatformDefault
     Sizes = (
@@ -44,7 +44,7 @@ object TabbedForm: TTabbedForm
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 191.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -53,12 +53,88 @@ object TabbedForm: TTabbedForm
       Text = 'Pascal'
       ExplicitSize.cx = 50.000000000000000000
       ExplicitSize.cy = 49.000000000000000000
+      object Layout3: TLayout
+        Align = Client
+        Size.Width = 384.000000000000000000
+        Size.Height = 470.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object Rectangle2: TRectangle
+          Align = Client
+          Fill.Color = claWhite
+          Size.Width = 384.000000000000000000
+          Size.Height = 470.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Color = claNull
+        end
+        object GridPanelLayout2: TGridPanelLayout
+          Align = Client
+          Size.Width = 384.000000000000000000
+          Size.Height = 470.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+          ColumnCollection = <
+            item
+              Value = 100.000000000000000000
+            end>
+          ControlCollection = <
+            item
+              Column = 0
+              Control = Edit4
+              Row = 0
+            end
+            item
+              Column = 0
+              Control = Memo1
+              Row = 1
+            end>
+          RowCollection = <
+            item
+              Value = 9.638553441174771000
+            end
+            item
+              Value = 90.361446558825220000
+            end
+            item
+              SizeStyle = Auto
+            end>
+          object Edit4: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Client
+            TabOrder = 0
+            Size.Width = 384.000000000000000000
+            Size.Height = 45.301200866699220000
+            Size.PlatformDefault = False
+            object EditButton4: TEditButton
+              CanFocus = False
+              Cursor = crArrow
+              Size.Width = 52.000000000000000000
+              Size.Height = 41.301208496093750000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Text = 'Enviar'
+              OnClick = EditButton4Click
+            end
+          end
+          object Memo1: TMemo
+            Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+            DataDetectorTypes = []
+            Align = Client
+            Size.Width = 384.000000000000000000
+            Size.Height = 424.698791503906300000
+            Size.PlatformDefault = False
+            TabOrder = 1
+            Viewport.Width = 380.000000000000000000
+            Viewport.Height = 420.700000000000000000
+          end
+        end
+      end
     end
     object TabItem2: TTabItem
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 191.000000000000000000
       Size.Height = 49.000000000000000000
       Size.PlatformDefault = False
@@ -140,7 +216,7 @@ object TabbedForm: TTabbedForm
           RowCollection = <
             item
               SizeStyle = Absolute
-              Value = 20.000000000000000000
+              Value = 25.000000000000000000
             end
             item
               SizeStyle = Absolute
@@ -152,7 +228,7 @@ object TabbedForm: TTabbedForm
             end
             item
               SizeStyle = Absolute
-              Value = 20.000000000000000000
+              Value = 25.000000000000000000
             end
             item
               SizeStyle = Absolute
@@ -164,7 +240,7 @@ object TabbedForm: TTabbedForm
             end
             item
               SizeStyle = Absolute
-              Value = 20.000000000000000000
+              Value = 25.000000000000000000
             end
             item
               SizeStyle = Absolute
@@ -177,7 +253,7 @@ object TabbedForm: TTabbedForm
             Align = Client
             StyledSettings = [Family, Size, FontColor]
             Size.Width = 368.000000000000000000
-            Size.Height = 12.000000000000000000
+            Size.Height = 17.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             Text = 'OAuth2 ID'
@@ -191,11 +267,21 @@ object TabbedForm: TTabbedForm
             Size.Width = 368.000000000000000000
             Size.Height = 34.000000000000000000
             Size.PlatformDefault = False
+            object EditButton2: TEditButton
+              CanFocus = False
+              Cursor = crArrow
+              Size.Width = 28.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Text = 'Ok'
+              OnClick = EditButton2Click
+            end
           end
           object FlowLayout1: TFlowLayout
             Anchors = []
             Position.X = 167.000000000000000000
-            Position.Y = 76.000000000000000000
+            Position.Y = 81.000000000000000000
             Size.Width = 50.000000000000000000
             Size.Height = 17.000000000000000000
             Size.PlatformDefault = False
@@ -208,7 +294,7 @@ object TabbedForm: TTabbedForm
             Align = Client
             StyledSettings = [Family, Size, FontColor]
             Size.Width = 368.000000000000000000
-            Size.Height = 12.000000000000000000
+            Size.Height = 17.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             Text = 'Project ID'
@@ -222,11 +308,20 @@ object TabbedForm: TTabbedForm
             Size.Width = 368.000000000000000000
             Size.Height = 34.000000000000000000
             Size.PlatformDefault = False
+            object EditButton1: TEditButton
+              CanFocus = False
+              Cursor = crArrow
+              Size.Width = 28.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Text = 'Ok'
+            end
           end
           object Layout2: TLayout
             Anchors = []
             Position.X = 167.000000000000000000
-            Position.Y = 173.000000000000000000
+            Position.Y = 183.000000000000000000
             Size.Width = 50.000000000000000000
             Size.Height = 17.000000000000000000
             Size.PlatformDefault = False
@@ -236,7 +331,7 @@ object TabbedForm: TTabbedForm
             Align = Client
             StyledSettings = [Family, Size, FontColor]
             Size.Width = 368.000000000000000000
-            Size.Height = 12.000000000000000000
+            Size.Height = 17.000000000000000000
             Size.PlatformDefault = False
             TextSettings.Font.StyleExt = {00070000000000000004000000}
             Text = 'Session ID'
@@ -250,6 +345,15 @@ object TabbedForm: TTabbedForm
             Size.Width = 368.000000000000000000
             Size.Height = 34.000000000000000000
             Size.PlatformDefault = False
+            object EditButton3: TEditButton
+              CanFocus = False
+              Cursor = crArrow
+              Size.Width = 28.000000000000000000
+              Size.Height = 30.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              Text = 'Ok'
+            end
           end
         end
       end
