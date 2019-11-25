@@ -80,7 +80,7 @@ object TabbedForm: TTabbedForm
           ControlCollection = <
             item
               Column = 0
-              Control = Edit4
+              Control = EdtText
               Row = 0
             end
             item
@@ -98,14 +98,14 @@ object TabbedForm: TTabbedForm
             item
               SizeStyle = Auto
             end>
-          object Edit4: TEdit
+          object EdtText: TEdit
             Touch.InteractiveGestures = [LongTap, DoubleTap]
             Align = Client
             TabOrder = 0
             Size.Width = 384.000000000000000000
             Size.Height = 45.301200866699220000
             Size.PlatformDefault = False
-            object EditButton4: TEditButton
+            object BtnSend: TEditButton
               CanFocus = False
               Cursor = crArrow
               Size.Width = 52.000000000000000000
@@ -113,7 +113,7 @@ object TabbedForm: TTabbedForm
               Size.PlatformDefault = False
               TabOrder = 0
               Text = 'Enviar'
-              OnClick = EditButton4Click
+              OnClick = BtnSendClick
             end
           end
           object Memo1: TMemo
@@ -316,6 +316,7 @@ object TabbedForm: TTabbedForm
               Size.PlatformDefault = False
               TabOrder = 0
               Text = 'Ok'
+              OnClick = EditButton1Click
             end
           end
           object Layout2: TLayout
@@ -353,6 +354,7 @@ object TabbedForm: TTabbedForm
               Size.PlatformDefault = False
               TabOrder = 0
               Text = 'Ok'
+              OnClick = EditButton3Click
             end
           end
         end
@@ -374,5 +376,31 @@ object TabbedForm: TTabbedForm
             GestureID = sgiRight
           end>
       end>
+  end
+  object RESTClient: TRESTClient
+    BaseURL = 'https://dialogflow.googleapis.com/v2/projects/'
+    ContentType = 'application/json'
+    Params = <>
+    Left = 152
+    Top = 281
+  end
+  object RESTRequest: TRESTRequest
+    Client = RESTClient
+    Method = rmPOST
+    Params = <
+      item
+        Kind = pkURLSEGMENT
+        Name = 'project-id'
+        Options = [poAutoCreated]
+      end
+      item
+        Kind = pkURLSEGMENT
+        Name = 'session-id'
+        Options = [poAutoCreated]
+      end>
+    Resource = '{project-id}/agent/sessions/{session-id}:detectIntent'
+    SynchronizedEvents = False
+    Left = 240
+    Top = 297
   end
 end

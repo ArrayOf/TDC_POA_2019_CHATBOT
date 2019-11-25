@@ -48,17 +48,22 @@ type
     EditButton2: TEditButton;
     EditButton3: TEditButton;
     GridPanelLayout2: TGridPanelLayout;
-    Edit4: TEdit;
+    EdtText: TEdit;
     Memo1: TMemo;
-    EditButton4: TEditButton;
+    BtnSend: TEditButton;
+    RESTClient: TRESTClient;
+    RESTRequest: TRESTRequest;
     procedure FormCreate(Sender: TObject);
     procedure FormGesture(Sender: TObject; const EventInfo: TGestureEventInfo;
       var Handled: Boolean);
     procedure EditButton2Click(Sender: TObject);
-    procedure EditButton4Click(Sender: TObject);
+    procedure BtnSendClick(Sender: TObject);
 
+    procedure SendTextToDialogFlow(Text: string);
+    procedure CreateRequestJSON(Text: string; out JSON: string);
 
-    procedure SendTextToDialogFlow();
+    procedure EditButton1Click(Sender: TObject);
+    procedure EditButton3Click(Sender: TObject);
   private
     { Private declarations }
     fOAuthID: string;
@@ -77,14 +82,34 @@ implementation
 {$R *.fmx}
 {$R *.LgXhdpiPh.fmx ANDROID}
 
+procedure TTabbedForm.EditButton1Click(Sender: TObject);
+begin
+  fProjectID := Edit2.Text;
+end;
+
 procedure TTabbedForm.EditButton2Click(Sender: TObject);
 begin
   fOAuthID := Edit1.Text
+  // https://dialogflow.googleapis.com/v2/projects/newagent-fcaogp/agent/sessions/teste:detectIntent
 end;
 
-procedure TTabbedForm.EditButton4Click(Sender: TObject);
+procedure TTabbedForm.EditButton3Click(Sender: TObject);
 begin
-  // Memo1.Lines.Add(fOAuthID);
+  fSessionID := Edit3.Text;
+end;
+
+procedure TTabbedForm.BtnSendClick(Sender: TObject);
+var
+  aTask: ITask;
+begin
+  Memo1.Lines.Add('Eu: ' + EdtText.Text);
+
+  aTask := TTask.Create(
+    procedure()
+    begin
+      SendTextToDialogFlow(EdtText.Text);
+    end);
+  aTask.Start;
 
 end;
 
@@ -93,10 +118,15 @@ begin
   { This defines the default active tab at runtime }
   TabControl1.ActiveTab := TabItem1;
 
+  Edit1.Text :=
+    'ya29.ImCyB73JJrYh6zhk8aX--kV8T_TwrEdy4pRX6x1-7KwlILoYMrT-OG_TaNAArmOUoW6JrbDfbJmoK6FWJM9NHcnJk2-U6zlSSUo5HTf3E2rjo9xwkcRhrS9M6iRxtq_FJQI';
+  Edit2.Text := 'newagent-fcaogp';
+  Edit3.Text := 'teste';
+
 end;
 
 procedure TTabbedForm.FormGesture(Sender: TObject;
-  const EventInfo: TGestureEventInfo; var Handled: Boolean);
+const EventInfo: TGestureEventInfo; var Handled: Boolean);
 begin
 {$IFDEF ANDROID}
   case EventInfo.GestureID of
@@ -116,6 +146,108 @@ begin
       end;
   end;
 {$ENDIF}
+end;
+
+procedure TTabbedForm.SendTextToDialogFlow(Text: string);
+var
+  oResponse: TJSONObject;
+  oBody: string;
+
+  oParam: TRESTRequestParameter;
+  oTextContent: TJSONObject;
+  oQueryResult: TJSONObject;
+
+  oRESTRequest: TRESTRequest;
+
+begin
+  oTextContent := nil;
+  try
+
+    oRESTRequest := RESTRequest;
+
+    oRESTRequest.Resource :=
+      '{project-id}/agent/sessions/{session-id}:detectIntent';
+    oRESTRequest.Method := TRESTRequestMethod.rmPost;
+    oRESTRequest.Params.ParameterByName('project-id').Value := fProjectID;
+    oRESTRequest.Params.ParameterByName('session-id').Value := fSessionID;
+
+    oParam := oRESTRequest.Params.AddItem;
+    oParam.Name := 'Authorization';
+    oParam.Value := 'Bearer ' + fOAuthID;
+    oParam.Kind := TRESTRequestParameterKind.pkHTTPHEADER;
+    oParam.Options := [TRESTRequestParameterOption.poDoNotEncode];
+
+    CreateRequestJSON(Text, oBody);
+
+    TThread.Synchronize(TThread.CurrentThread,
+      procedure()
+      begin
+        Memo1.Lines.Add('Processando ....: ' + oBody);
+      end);
+
+    oRESTRequest.AddBody(oBody, TRESTContentType.ctAPPLICATION_JSON);
+
+    oRESTRequest.Execute;
+    oResponse := oRESTRequest.Response.JSONValue as TJSONObject;
+
+    TThread.Synchronize(TThread.CurrentThread,
+      procedure()
+      begin
+        Memo1.Lines.Delete(Memo1.Lines.Count - 1);
+      end);
+
+    if RESTRequest.Response.StatusCode = 200 then
+    begin
+      oResponse := RESTRequest.Response.JSONValue as TJSONObject;
+      oQueryResult := oResponse.GetValue('queryResult') as TJSONObject;
+
+      TThread.Synchronize(TThread.CurrentThread,
+        procedure()
+        begin
+          EdtText.Text := '';
+          Memo1.Lines.Add(oQueryResult.GetValue('fulfillmentText').Value);
+        end);
+    end
+    else
+    begin
+      TThread.Synchronize(TThread.CurrentThread,
+        procedure()
+        begin
+          Memo1.Lines.Add(RESTRequest.Response.StatusText);
+          Memo1.Lines.Add(RESTRequest.Response.Content);
+        end);
+    end;
+
+  finally
+    oRESTRequest.Free;
+    oResponse.Free;
+  end;
+end;
+
+procedure TTabbedForm.CreateRequestJSON(Text: string; out JSON: string);
+var
+  oBody: TJSONObject;
+  oText: TJSONObject;
+  oTextContent: TJSONObject;
+begin
+
+  try
+    oBody := TJSONObject.Create;
+    oText := TJSONObject.Create;
+    oTextContent := TJSONObject.Create;
+
+    oTextContent.AddPair('text', Text);
+    oTextContent.AddPair('languageCode', 'pt-BR');
+
+    oText.AddPair('text', oTextContent);
+    oBody.AddPair('queryInput', oText);
+
+    JSON := oBody.ToString;
+  finally
+    oBody.Free;
+    oText.Free;
+    oTextContent.Free;
+  end;
 end;
 
 end.
