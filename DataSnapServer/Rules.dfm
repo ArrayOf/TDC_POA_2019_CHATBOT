@@ -8,6 +8,7 @@ object DataModule1: TDataModule1
     Top = 56
   end
   object DSHTTPService1: TDSHTTPService
+    OnFormatResult = DSHTTPService1FormatResult
     Server = DSServer1
     Filters = <>
     Left = 96
@@ -17,6 +18,12 @@ object DataModule1: TDataModule1
     OnGetClass = DSServerClass1GetClass
     Server = DSServer1
     Left = 104
+    Top = 248
+  end
+  object DSServerClass2: TDSServerClass
+    OnGetClass = DSServerClass2GetClass
+    Server = DSServer1
+    Left = 208
     Top = 248
   end
 end

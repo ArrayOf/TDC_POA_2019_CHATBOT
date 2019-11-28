@@ -16,9 +16,9 @@ uses
   Vcl.ExtCtrls;
 
 type
-  TForm1 = class(TForm)
+  TfMain = class(TForm)
     Panel1: TPanel;
-    Memo1: TMemo;
+    memoResponse: TMemo;
     Button1: TButton;
     procedure Button1Click(Sender: TObject);
   private
@@ -28,7 +28,7 @@ type
   end;
 
 var
-  Form1: TForm1;
+  fMain: TfMain;
 
 implementation
 
@@ -36,7 +36,7 @@ implementation
 
 uses Rules;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TfMain.Button1Click(Sender: TObject);
 begin
   DataModule1.DSServer1.Start;
   Self.Button1.Enabled := False;

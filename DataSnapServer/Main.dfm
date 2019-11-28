@@ -1,4 +1,4 @@
-object Form1: TForm1
+object fMain: TfMain
   Left = 0
   Top = 0
   Caption = 'Servidor DataSnap Simulando o sistema legado'
@@ -24,9 +24,6 @@ object Form1: TForm1
     Caption = 'Panel1'
     ShowCaption = False
     TabOrder = 0
-    ExplicitLeft = 512
-    ExplicitTop = 520
-    ExplicitHeight = 41
     object Button1: TButton
       Left = 8
       Top = 6
@@ -37,7 +34,7 @@ object Form1: TForm1
       OnClick = Button1Click
     end
   end
-  object Memo1: TMemo
+  object memoResponse: TMemo
     AlignWithMargins = True
     Left = 194
     Top = 3
@@ -47,16 +44,83 @@ object Form1: TForm1
     Color = 16384
     Font.Charset = ANSI_CHARSET
     Font.Color = clLime
-    Font.Height = -21
+    Font.Height = -16
     Font.Name = 'Consolas'
     Font.Style = []
     Lines.Strings = (
-      'Memo1')
+      '{'
+      '  "fulfillmentText": "2 unidades de $PRODUCT",'
+      '  "fulfillmentMessages": ['
+      '    {'
+      '      "card": {'
+      '        "title": "$PRODUCT",'
+      '        "subtitle": "2 unidades de $PRODUCT",'
+      
+        '        "imageUri": "https://assistant.google.com/static/images/' +
+        'molecule/Molecule-Formation-stop.png",'
+      '        "buttons": ['
+      '          {'
+      '            "text": "Estoque",'
+      '            "postback": "https://assistant.google.com/"'
+      '          }'
+      '        ]'
+      '      }'
+      '    }'
+      '  ],'
+      '  "source": "example.com",'
+      '  "payload": {'
+      '    "google": {'
+      '      "expectUserResponse": true,'
+      '      "richResponse": {'
+      '        "items": ['
+      '          {'
+      '            "simpleResponse": {'
+      '              "textToSpeech": "$PRODUCT"'
+      '            }'
+      '          },'
+      '          {'
+      '            "basicCard": {'
+      '              "title": "2 unidades de $PRODUCT",'
+      '              "image": {'
+      
+        '                "url": "https://assistant.google.com/static/imag' +
+        'es/molecule/Molecule-Formation-stop.png",'
+      '                "accessibilityText": "Google Logo"'
+      '              },'
+      '              "buttons": ['
+      '                {'
+      '                  "title": "Vem comigo",'
+      '                  "openUrlAction": {'
+      '                    "url": "https://www.google.com"'
+      '                  }'
+      '                }'
+      '              ],'
+      '              "imageDisplayOptions": "WHITE"'
+      '            }'
+      '          }'
+      '        ]'
+      '      }'
+      '    },'
+      '    "facebook": {'
+      '      "attachment": {'
+      '        "type": "template",'
+      '        "payload": {'
+      '          "template_type": "button",'
+      '          "text": "2 unidades de $PRODUCT",'
+      '          "buttons": ['
+      '            {'
+      '              "type": "web_url",'
+      '              "url": "https://www.messenger.com",'
+      '              "title": "2 unidades de $PRODUCT"'
+      '            }'
+      '          ]'
+      '        }'
+      '      }'
+      '    }'
+      '  }'
+      '}')
     ParentFont = False
     TabOrder = 1
-    ExplicitLeft = 504
-    ExplicitTop = 440
-    ExplicitWidth = 185
-    ExplicitHeight = 89
+    WordWrap = False
   end
 end

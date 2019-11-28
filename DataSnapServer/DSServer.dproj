@@ -99,7 +99,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="Main.pas">
-            <Form>Form1</Form>
+            <Form>fMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="Rules.pas">
@@ -108,6 +108,8 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="FooBar.pas"/>
+        <DCCReference Include="DialogFlow.pas"/>
+        <DCCReference Include="DialogFlowRequest.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
