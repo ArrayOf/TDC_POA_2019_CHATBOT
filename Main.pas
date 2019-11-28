@@ -157,21 +157,15 @@ var
   oTextContent: TJSONObject;
   oQueryResult: TJSONObject;
 
-  oRESTRequest: TRESTRequest;
-
 begin
   oTextContent := nil;
   try
 
-    oRESTRequest := RESTRequest;
+    RESTRequest.Method := TRESTRequestMethod.rmPost;
+    RESTRequest.Params.ParameterByName('project-id').Value := fProjectID;
+    RESTRequest.Params.ParameterByName('session-id').Value := fSessionID;
 
-    oRESTRequest.Resource :=
-      '{project-id}/agent/sessions/{session-id}:detectIntent';
-    oRESTRequest.Method := TRESTRequestMethod.rmPost;
-    oRESTRequest.Params.ParameterByName('project-id').Value := fProjectID;
-    oRESTRequest.Params.ParameterByName('session-id').Value := fSessionID;
-
-    oParam := oRESTRequest.Params.AddItem;
+    oParam := RESTRequest.Params.AddItem;
     oParam.Name := 'Authorization';
     oParam.Value := 'Bearer ' + fOAuthID;
     oParam.Kind := TRESTRequestParameterKind.pkHTTPHEADER;
@@ -185,10 +179,10 @@ begin
         Memo1.Lines.Add('Processando ....: ' + oBody);
       end);
 
-    oRESTRequest.AddBody(oBody, TRESTContentType.ctAPPLICATION_JSON);
+    RESTRequest.AddBody(oBody, TRESTContentType.ctAPPLICATION_JSON);
 
-    oRESTRequest.Execute;
-    oResponse := oRESTRequest.Response.JSONValue as TJSONObject;
+    RESTRequest.Execute;
+    oResponse := RESTRequest.Response.JSONValue as TJSONObject;
 
     TThread.Synchronize(TThread.CurrentThread,
       procedure()
@@ -219,7 +213,6 @@ begin
     end;
 
   finally
-    oRESTRequest.Free;
     oResponse.Free;
   end;
 end;
